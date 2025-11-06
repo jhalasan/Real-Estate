@@ -26,28 +26,6 @@ body {
   position: relative;
 }
 
-/* Top Login Button */
-.top-login-btn {
-  position: absolute;
-  top: 25px;
-  right: 40px;
-  background: #000;
-  color: #fff;
-  border: none;
-  padding: 8px 18px;
-  border-radius: 20px;
-  font-size: 0.9rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  z-index: 10;
-}
-
-.top-login-btn:hover {
-  background: #333;
-  transform: translateY(-2px);
-}
-
 /* Form Box */
 .form-box {
   width: 440px;
