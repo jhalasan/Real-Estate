@@ -1,0 +1,10 @@
+body {
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.left-section {
+    background: url('assets/GettyImages-175259322-scaled-e1644008212418.jpg');
+    height: 100vh;
+}
