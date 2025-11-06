@@ -1,0 +1,272 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #f8f9fa;
+  overflow: hidden;
+}
+
+.signup-container {
+  display: flex;
+  height: 100vh;
+}
+
+/* LEFT SECTION (Form Section) */
+.left-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  position: relative;
+}
+
+/* Top Login Button */
+.top-login-btn {
+  position: absolute;
+  top: 25px;
+  right: 40px;
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.top-login-btn:hover {
+  background: #333;
+  transform: translateY(-2px);
+}
+
+/* Form Box */
+.form-box {
+  width: 440px;
+  background: #fff;
+  padding: 40px 35px;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+.form-box h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #1d1d1d;
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  color: #6c757d;
+  margin-bottom: 25px;
+}
+
+/* Inputs */
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: #444;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 18px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  transition: border-color 0.3s ease;
+}
+
+input:focus {
+  border-color: #000;
+  outline: none;
+}
+
+/* Password Wrapper */
+.password-wrapper {
+  position: relative;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #666;
+}
+
+/* Options */
+.form-options {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 18px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.terms {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.terms input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: #000;
+  cursor: pointer;
+  margin: 0;
+}
+
+/* Buttons */
+.signup-btn {
+  width: 100%;
+  background: #000;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.signup-btn:hover {
+  background: #222;
+}
+
+/* Divider */
+.divider {
+  text-align: center;
+  margin: 20px 0;
+  position: relative;
+  color: #999;
+  font-size: 0.9rem;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 40%;
+  height: 1px;
+  background: #ddd;
+}
+
+.divider::before {
+  left: 0;
+}
+
+.divider::after {
+  right: 0;
+}
+
+/* Social Login */
+.social-login button {
+  width: 100%;
+  border: 1px solid #ccc;
+  background: #fff;
+  border-radius: 6px;
+  padding: 10px;
+  margin-bottom: 12px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.social-login button:hover {
+  background: #f8f9fa;
+}
+
+.google-btn i {
+  color: #db4437;
+}
+
+.facebook-btn i {
+  color: #1877f2;
+}
+
+.login-text {
+  text-align: center;
+  font-size: 0.9rem;
+  margin-top: 15px;
+  color: #555;
+}
+
+.login-text a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.login-text a:hover {
+  text-decoration: underline;
+}
+
+/* RIGHT SECTION (Image Side) */
+.right-section {
+  flex: 1;
+  position: relative;
+  background: url('assets/GettyImages-175259322-scaled-e1644008212418.jpg') no-repeat center center/cover;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 40px;
+}
+
+.right-section .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.brand {
+  position: absolute;
+  top: 40px;
+  left: 60px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 2;
+}
+
+.brand i {
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.right-section .content {
+  position: relative;
+  z-index: 2;
+  max-width: 420px;
+}
+
+.right-section h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.right-section p {
+  font-size: 1rem;
+  color: #f0f0f0;
+  line-height: 1.6;
+}
