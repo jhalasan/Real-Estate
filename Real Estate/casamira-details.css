@@ -1,0 +1,257 @@
+ * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: "Poppins", sans-serif;
+    color: #333;
+    background-color: white;
+    padding-top: 50px;
+  }
+ 
+
+  /* Navbar Styles */
+ .navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 20px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+    background-color: #52708d;
+  }
+  
+  .logo {
+    font-weight: 600;
+    font-size: 16px;
+    color: white;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin-bottom: 0;
+  }
+  
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    transition: color 0.3s;
+  }
+  
+  .nav-links a:hover {
+    color: #fcd34d;
+  }
+  
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .phone {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .details-btn:hover {
+  background-color: #0b5ed7;
+  transform: translateY(-2px);
+}
+/* Dropdown Menu */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  list-style: none;
+  padding: 10px 0;
+  margin: 0;
+  min-width: 150px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border-radius: 6px;
+  display: none;
+  z-index: 1000;
+}
+
+.dropdown-menu li {
+  padding: 0;
+}
+
+.dropdown-menu a {
+  color: #333;
+  display: block;
+  padding: 8px 16px;
+  text-decoration: none;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.dropdown-menu a:hover {
+  background-color: #f8f9fa;
+  color: #0d6efd;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown > a i {
+  font-size: 0.7rem;
+  margin-left: 5px;
+}
+
+/* Hero Section */
+.img-casamira {
+  position: relative;
+  background: url('assets/CasamiraHomes.png') center/cover no-repeat;
+  height: 500px;
+  width: 100%;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.6), transparent);
+  display: flex;
+  align-items: center;
+}
+
+.overlay-content {
+  color: white;
+  margin-left: 60px;
+  max-width: 400px;
+}
+
+.overlay-content h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.overlay-content p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #f1f1f1;
+}
+
+.overlay-content {
+  animation: fadeInLeft 1s ease-in-out;
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.inquire-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #fcd34d;
+  color: #333;
+  border: none;
+  border-radius: 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.inquire-btn:hover {
+  background-color: #eab308;
+}
+
+/* Details Section */
+
+.details {
+    padding: 40px 60px;
+    text-align: justify;
+}
+.details h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+.details p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.line {
+  width: 80px;
+  height: 4px;
+  background-color: #c0392b; 
+  margin: 0 0 20px 0;
+  border-radius: 2px;
+}
+
+.line {
+  animation: growLine 1s ease-in-out;
+}
+
+@keyframes growLine {
+  from { width: 0; opacity: 0; }
+  to { width: 80px; opacity: 1; }
+}
+
+/*location section*/
+
+.location {
+    padding: 10px 60px;
+}
+
+.location h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.mapouter {
+  position: relative;
+  text-align: right;
+  width: 100%;
+  height: 450px;
+  margin: 40px auto; 
+}
+
+.gmap_canvas {
+  overflow: hidden;
+  background: none !important;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px; 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.gmap_canvas iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.siteplan {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
