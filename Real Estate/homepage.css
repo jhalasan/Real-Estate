@@ -345,3 +345,53 @@
   font-size: 0.7rem;
   margin-left: 5px;
 }
+/* Footer Section */
+footer {
+  background-color: #52708d; /* Muted blue tone similar to your reference */
+  color: #fff;
+  padding: 1.5rem 3rem;
+}
+
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.footer-logo {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #fff;
+  margin: 0;
+}
+
+.footer-center {
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.footer-right .social-icons a {
+  color: #fff;
+  margin-left: 1rem;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.footer-right .social-icons a:hover {
+  color: #fcd34d; /* Gold accent for hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.8rem;
+  }
+
+  .footer-right .social-icons a {
+    margin-left: 0.6rem;
+  }
+}
+
