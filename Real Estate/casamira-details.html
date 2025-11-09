@@ -4,76 +4,170 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bexprestige - Casa Mira Homes</title>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="casamira-details.css">
 </head>
+
 <body>
-     <header class="navbar">
+
+<header class="navbar">
     <div class="logo">Bexprestige.</div>
-   <nav>
-  <ul class="nav-links">
-    <li><a href="#">Home</a></li>
 
-    <!-- Dropdown Menu -->
-    <li class="dropdown">
-      <a href="#">Listings <i class="bi bi-caret-down-fill"></i></a>
-      <ul class="dropdown-menu">
-        <li><a href="#">For Sale</a></li>
-        <li><a href="#">For Rent</a></li>
-        <li><a href="#">Foreclosure</a></li>
-      </ul>
-    </li>
+    <nav>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
 
-    <li><a href="#">Members</a></li>
-    <li><a href="#">Blog</a></li>
-    <li><a href="#">About Us</a></li>
-    <li><a href="#">Contact</a></li>
-  </ul>
-</nav>
+            <li class="dropdown">
+                <a href="#">Listings <i class="bi bi-caret-down-fill"></i></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">For Sale</a></li>
+                    <li><a href="#">For Rent</a></li>
+                </ul>
+            </li>
+
+            <li><a href="#">Members</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
 
     <div class="nav-right">
-      <a href="tel:+63991112233" class="phone"><i class="bi bi-telephone"></i> +63991112233</a>
+        <a href="tel:+63991112233" class="phone"><i class="bi bi-telephone"></i> +63991112233</a>
     </div>
-  </header>
+</header>
 
-  <div class="img-casamira">
-  <div class="overlay">
-    <div class="overlay-content">
-      <h1>Casa Mira Homes</h1>
-      <p>Your dream home awaits.</p>
-      <button class="inquire-btn">Inquire Now</button>
+<div class="img-casamira">
+    <div class="overlay">
+        <div class="overlay-content">
+            <h1>Casa Mira Homes</h1>
+            <p>Your dream home awaits.</p>
+            <button class="inquire-btn">Inquire Now</button>
+        </div>
     </div>
-  </div>
 </div>
 
-  <div class="details">
+<div class="details">
     <h2>About Us</h2>
     <div class="line"></div>
-    <p>Casa Mira Homes is dedicated to providing quality housing at affordable prices.
-        A thoughtully planned community in the heart of the SOCCSKSARGEN Region,
+    <p>
+        Casa Mira Homes is dedicated to providing quality housing at affordable prices.
+        A thoughtfully planned community in the heart of the SOCCSKSARGEN Region,
         designed to give you and your family the perfect space to create lasting memories.
-        This 21-hectare residential development in General Santos City features 1,218 well
-        designed units, offering the ideal blend of comfort, convenience, and tranquility.
+        This 21-hectare residential development in General Santos City features 1,218 well-designed units,
+        offering the ideal blend of comfort, convenience, and tranquility.
         Experience a home that keeps you connected to essential amenities while allowing you to unwind away
         from the hustle and bustle of the city.
     </p>
-  </div>
+</div>
 
-  <div class="location">
-    <h2>Location</h2>
-    <div class="line"></div>
-        <div class="mapouter">
-            <div class="gmap_canvas">
-                <iframe 
-                    allowfullscreen 
-                    loading="lazy" 
-                    referrerpolicy="no-referrer-when-downgrade"
-                    src="https://www.google.com/maps/embed/v1/place?q=Casa%20Mira%20Gensan&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8">
-                </iframe>
-            </div>
+<section class="location-section">
+    <div class="address">
+        <div class="address-header">
+            <i class="bi bi-geo-alt-fill"></i>
+            <p>Brgy. Ligaya & Brgy. Lagao, General Santos City</p>
         </div>
-        <img src="assets/siteplan-casamira.PNG" alt="Site Plan" class="siteplan">
+
+        <h3>Vicinity Map</h3>
+        <ul>
+            <li>4 mins away from ACE Medical Center</li>
+            <li>5 mins away from University of Santo Tomas</li>
+            <li>5 mins away from Lagao Public Market</li>
+            <li>10 mins away from Robinsons Place Gensan</li>
+            <li>14 mins away from SM City Gensan</li>
+            <li>14 mins away from Savemore Market Nunez</li>
+            <li>17 mins away from Plaza Heneral Santos</li>
+            <li>18 mins away from Mindanao Medical Center</li>
+            <li>21 mins away from Gensan City Hall</li>
+            <li>30 mins away from Gensan International Airport</li>
+        </ul>
     </div>
+
+    <div class="mapouter">
+        <div class="gmap_canvas">
+            <iframe 
+                allowfullscreen 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade"
+                src="https://www.google.com/maps/embed/v1/place?q=Casa%20Mira%20Gensan&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8">
+            </iframe>
+        </div>
+    </div>
+</section>
+
+<div class="project">
+    <img src="assets/Casamirapic.webp" alt="Casa Mira Project" class="project-img">
+
+    <div class="project-text">
+        <h2>About the Project</h2>
+        <div class="line"></div>
+
+        <div class="project-details">
+
+            <div class="detail-row">
+                <span class="label">Location</span>
+                <span class="value">Brgy. Ligaya & Brgy. Lagao, General Santos City</span>
+            </div>
+
+            <div class="detail-row">
+                <span class="label">Total No. of Units</span>
+                <span class="value">1,218 Units</span>
+            </div>
+
+            <div class="detail-row">
+                <span class="label">Project Type</span>
+                <span class="value">Residential Subdivision</span>
+            </div>
+
+            <div class="detail-row">
+                <span class="label">Product Type</span>
+                <span class="value">Townhouse, Single-Detached and Semi-Attached Units</span>
+            </div>
+
+            <div class="detail-row">
+                <span class="label">Terrain</span>
+                <span class="value">Flat Terrain</span>
+            </div>
+
+            <div class="detail-row">
+                <span class="label">Total Lot Area</span>
+                <span class="value">21 Hectares</span>
+            </div>
+
+            <div class="detail-row">
+                <span class="label">Services</span>
+                <span class="value">Property Management Services</span>
+            </div>
+
+            <div class="detail-row">
+                <span class="label">Utilities</span>
+                <span class="value">MRF, Elevated Water Tank</span>
+            </div>
+
+            <div class="detail-row">
+                <span class="label">Other Features</span>
+                <span class="value">
+                    Main Entrance with Guardhouse<br>
+                    Perimeter Fence<br>
+                    Landscaping<br>
+                    Solar-Ready Homes<br>
+                    Solar-Powered Homes
+                </span>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="Units and Floor Plan">
+    <h2>Units and Floor Plan</h2>
+    <div class="line"></div>
+
+</div>
+
+<img src="assets/siteplan-casamira.PNG" alt="Site Plan" class="siteplan">
+
 </body>
 </html>
