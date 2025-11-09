@@ -59,23 +59,7 @@
     text-decoration: none;
     font-size: 14px;
   }
-  
-  .add-property {
-    background: transparent;
-    border: 1px solid white;
-    color: white;
-    padding: 6px 16px;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: all 0.3s;
-  }
-  
-  .add-property:hover {
-    background: #fcd34d;
-    border-color: #fcd34d;
-    color: black;
-  }
-  
+
   /* Hero Section */
   .hero {
     height: 100vh;
@@ -295,4 +279,69 @@
     color: #6c757d;
     align-items: center;
   }
-  
+  .details-btn {
+  background-color: #0d6efd;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 0.75rem;
+  display: inline-block;
+}
+
+.details-btn:hover {
+  background-color: #0b5ed7;
+  transform: translateY(-2px);
+}
+/* Dropdown Menu */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  list-style: none;
+  padding: 10px 0;
+  margin: 0;
+  min-width: 150px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border-radius: 6px;
+  display: none;
+  z-index: 1000;
+}
+
+.dropdown-menu li {
+  padding: 0;
+}
+
+.dropdown-menu a {
+  color: #333;
+  display: block;
+  padding: 8px 16px;
+  text-decoration: none;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.dropdown-menu a:hover {
+  background-color: #f8f9fa;
+  color: #0d6efd;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* Dropdown arrow icon alignment */
+.dropdown > a i {
+  font-size: 0.7rem;
+  margin-left: 5px;
+}
