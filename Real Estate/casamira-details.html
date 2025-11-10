@@ -161,13 +161,157 @@
     </div>
 </div>
 
-<div class="Units and Floor Plan">
+
+<section class="floor-plan-section">
+  <div class="units-floorplan-header">
     <h2>Units and Floor Plan</h2>
     <div class="line"></div>
+  </div>
 
-</div>
+  <div class="floor-plan-container">
+    
+    <!-- LEFT SIDE -->
+    <div class="floor-plan-header">
+      <div class="unit-navigation">
+        <button id="prevUnit" class="nav-arrow"><i class="bi bi-chevron-left"></i></button>
+        <div class="unit-title">
+          <h2>FLOOR PLAN</h2>
+          <h3 id="unitName">MODEL-A MID UNIT</h3>
+          <div class="underline"></div>
+        </div>
+        <button id="nextUnit" class="nav-arrow"><i class="bi bi-chevron-right"></i></button>
+      </div>
+
+      <p><strong>Total Floor Area:</strong> <span id="floorArea">46.99 sqm</span><br>
+         <strong>Typical Lot Area:</strong> <span id="lotArea">54.00 sqm</span></p>
+
+      <ul id="featuresList">
+        <li>2 Bedrooms</li>
+        <li>1 Toilet & Bath</li>
+        <li>1 Powder Room</li>
+        <li>Balconette</li>
+        <li>Car Parking</li>
+      </ul>
+
+      <img src="assets/CasaMira-modelb.webp" alt="Model B Unit Image" id="unitImage" class="unitB-image">
+
+      <div class="solar-note">
+        <i class="bi bi-brightness-high"></i>
+        <p><strong>Solar-Ready</strong><br>(Buyers discretion to add solar panels)</p>
+      </div>
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="floor-plan-images" id="floorImages">
+      <div class="floor">
+        <img src="assets/Model-A-Mid-GF.PNG" alt="Ground Floor Plan" id="groundImage">
+        <h4>Ground Floor</h4>
+        <p id="groundDetails">Living/Dining/Kitchen<br>Powder Room<br>Stairs</p>
+      </div>
+
+      <div class="floor">
+        <img src="assets/Model-A-Mid-SF.PNG" alt="Second Floor Plan" id="secondImage">
+        <h4>Second Floor</h4>
+        <p id="secondDetails">Hallway<br>Bedroom 1<br>Masters Bedroom<br>Common T&B<br>Stairs</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
 
 <img src="assets/siteplan-casamira.PNG" alt="Site Plan" class="siteplan">
 
+
+<script>
+
+const units = [
+  {
+    name: "MODEL-A MID UNIT",
+    floorArea: "46.99 sqm",
+    lotArea: "54.00 sqm",
+    features: ["2 Bedrooms", "1 Toilet & Bath", "1 Powder Room", "Balconette", "Car Parking"],
+    image: "assets/CasaMira-modelb.webp",
+    groundImage: "assets/Model-A-Mid-GF.PNG",
+    groundDetails: "Living/Dining/Kitchen<br>Toilet & Bath<br>Stairs",
+    secondImage: "assets/Model-A-Mid-SF.PNG",
+    secondDetails: "Bedroom 1<br>Master’s Bedroom<br>Hallway<br>Stairs"
+  },
+  {
+    name: "MODEL-A END UNIT",
+    floorArea: "46.99 sqm",
+    lotArea: "78.00 sqm",
+    features: ["2 Bedrooms", "1 Toilet & Bath", "1 Powder Room", "Balconette", "Car Parking"],
+    image: "assets/Model-A-End.webp",
+    groundImage: "assets/Model-A-End-GF.PNG",
+    groundDetails: "Living/Dining/Kitchen<br>Powder Room<br>Stairs",
+    secondImage: "assets/Model-A-End-SF.PNG",
+    secondDetails: "Bedroom 1<br>Master’s Bedroom<br>Common T&B<br>Stairs"
+  },
+  {
+    name: "MODEL-B MID UNIT",
+    floorArea: "54.39 sqm",
+    lotArea: "54.00 sqm",
+    features: ["2 Bedrooms", "1 Toilet & Bath", "1 Powder Room", "Balconette", "Car Parking"],
+    image: "assets/CasaMira-modelb.webp",
+    groundImage: "assets/modelB-groundfloor.PNG",
+    groundDetails: "Living/Dining/Kitchen<br>Powder Room<br>Stairs",
+    secondImage: "assets/modelB-secondfloor.PNG",
+    secondDetails: "Hallway<br>Bedroom 1<br>Masters Bedroom<br>Common T&B<br>Stairs"
+  },
+  {
+    name: "MODEL-B END UNIT",
+    floorArea: "54.39 sqm",
+    lotArea: "78.00 sqm",
+    features: ["2 Bedrooms", "1 Toilet & Bath", "1 Powder Room", "Balconette", "Car Parking"],
+    image: "assets/Model-B-End.webp",
+    groundImage: "assets/Model-B-End-GF.PNG",
+    groundDetails: "Living/Dining/Kitchen<br>Powder Room<br>Stairs",
+    secondImage: "assets/Model-B-End-SF.PNG",
+    secondDetails: "Hallway<br>Bedroom 1<br>Masters Bedroom<br>Common T&B<br>Stairs"
+  }
+];
+
+let currentIndex = 2; // starts at Model B Mid Unit
+
+const unitName = document.getElementById("unitName");
+const floorArea = document.getElementById("floorArea");
+const lotArea = document.getElementById("lotArea");
+const featuresList = document.getElementById("featuresList");
+const unitImage = document.getElementById("unitImage");
+const groundImage = document.getElementById("groundImage");
+const groundDetails = document.getElementById("groundDetails");
+const secondImage = document.getElementById("secondImage");
+const secondDetails = document.getElementById("secondDetails");
+
+function updateUnit(index) {
+  const unit = units[index];
+  unitName.textContent = unit.name;
+  floorArea.textContent = unit.floorArea;
+  lotArea.textContent = unit.lotArea;
+  unitImage.src = unit.image;
+  groundImage.src = unit.groundImage;
+  groundDetails.innerHTML = unit.groundDetails;
+  secondImage.src = unit.secondImage;
+  secondDetails.innerHTML = unit.secondDetails;
+
+  // update features list
+  featuresList.innerHTML = unit.features.map(f => `<li>${f}</li>`).join('');
+}
+
+// navigation buttons
+document.getElementById("prevUnit").addEventListener("click", () => {
+  currentIndex = (currentIndex - 1 + units.length) % units.length;
+  updateUnit(currentIndex);
+});
+
+document.getElementById("nextUnit").addEventListener("click", () => {
+  currentIndex = (currentIndex + 1) % units.length;
+  updateUnit(currentIndex);
+});
+</script>
+
 </body>
+
 </html>
