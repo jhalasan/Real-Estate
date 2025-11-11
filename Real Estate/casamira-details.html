@@ -17,7 +17,7 @@
 
     <nav>
         <ul class="nav-links">
-            <li><a href="#">Home</a></li>
+            <li><a href="homepage.html">Home</a></li>
 
             <li class="dropdown">
                 <a href="#">Listings <i class="bi bi-caret-down-fill"></i></a>
@@ -40,14 +40,43 @@
 </header>
 
 <div class="img-casamira">
-    <div class="overlay">
-        <div class="overlay-content">
-            <h1>Casa Mira Homes</h1>
-            <p>Your dream home awaits.</p>
-            <button class="inquire-btn">Inquire Now</button>
-        </div>
+  <div class="overlay">
+    <div class="overlay-content">
+      <h1>Casa Mira Homes</h1>
+      <p>Your dream home awaits.</p>
+      <button class="inquire-btn" id="openFormBtn">Inquire Now</button>
     </div>
+  </div>
 </div>
+
+<!-- Inquiry Form Popup -->
+<div class="popup-overlay" id="popupOverlay">
+  <div class="popup-form">
+    <span class="close-btn" id="closeFormBtn">&times;</span>
+    <h2>Inquire About Casa Mira</h2>
+    <p>Fill out the form below and we’ll get back to you soon.</p>
+    <form id="inquiryForm">
+      <div class="form-group">
+        <label>Full Name</label>
+        <input type="text" placeholder="Enter your name" required>
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" placeholder="Enter your email" required>
+      </div>
+      <div class="form-group">
+        <label>Contact Number</label>
+        <input type="tel" placeholder="Enter your number" required>
+      </div>
+      <div class="form-group">
+        <label>Message</label>
+        <textarea rows="4" placeholder="Your message..." required></textarea>
+      </div>
+      <button type="submit" class="submit-btn">Send Inquiry</button>
+    </form>
+  </div>
+</div>
+
 
 <div class="details">
     <h2>About Us</h2>
@@ -193,7 +222,7 @@
         <li>Car Parking</li>
       </ul>
 
-      <img src="assets/CasaMira-modelb.webp" alt="Model B Unit Image" id="unitImage" class="unitB-image">
+      <img src="assets/CasaMira-modelb.webp" alt="Unit Image" id="unitImage" class="unit-image">
 
       <div class="solar-note">
         <i class="bi bi-brightness-high"></i>
@@ -218,14 +247,49 @@
   </div>
 </section>
 
+<section class="amenities">
+  <h2>Amenities</h2>
+  <div class="line"></div>
 
+  <div class="gallery-wrapper">
+    <button class="arrow left" id="prevBtn"><i class="bi bi-chevron-left"></i></button>
 
+    <div class="amenities-container" id="gallery">
+      <img src="assets/Clubhouse.PNG" alt="Clubhouse">
+      <img src="assets/ClubhouseExt.PNG" alt="Clubhouse Exterior">
+      <img src="assets/LoungeArea.PNG" alt="Lounge Area">
+      <img src="assets/FunctionArea.PNG" alt="Function Area">
+      <img src="assets/PoolArea.PNG" alt="Pool Area">
+      <img src="assets/PrayerRoom.PNG" alt="Prayer Room">
+      <img src="assets/Park.PNG" alt="Park">
+      <img src="assets/Park2.PNG" alt="Park 2">
+      <img src="assets/BasketballCourt.PNG" alt="Basketball Court">
+    </div>
 
-<img src="assets/siteplan-casamira.PNG" alt="Site Plan" class="siteplan">
+    <button class="arrow right" id="nextBtn"><i class="bi bi-chevron-right"></i></button>
+  </div>
+</section>
 
+<footer>
+  <div class="footer-content">
+    <div class="footer-left">
+      <h4 class="footer-logo">Bexprestige</h4>
+    </div>
+
+    <p class="footer-center">&copy; 2025 Bexprestige. All rights reserved.</p>
+
+    <div class="footer-right">
+      <div class="social-icons">
+        <a href="#"><i class="bi bi-facebook"></i></a>
+        <a href="#"><i class="bi bi-twitter"></i></a>
+        <a href="#"><i class="bi bi-instagram"></i></a>
+        <a href="#"><i class="bi bi-linkedin"></i></a>
+      </div>
+    </div>
+  </div>
+</footer>
 
 <script>
-
 const units = [
   {
     name: "MODEL-A MID UNIT",
@@ -265,15 +329,47 @@ const units = [
     floorArea: "54.39 sqm",
     lotArea: "78.00 sqm",
     features: ["2 Bedrooms", "1 Toilet & Bath", "1 Powder Room", "Balconette", "Car Parking"],
-    image: "assets/Model-B-End.webp",
+    image: "assets/CasamiraHomes.png",
     groundImage: "assets/Model-B-End-GF.PNG",
     groundDetails: "Living/Dining/Kitchen<br>Powder Room<br>Stairs",
     secondImage: "assets/Model-B-End-SF.PNG",
     secondDetails: "Hallway<br>Bedroom 1<br>Masters Bedroom<br>Common T&B<br>Stairs"
+  },
+  {
+    name: "CIELO UNIT",
+    floorArea: "48.35 sqm",
+    lotArea: "100.00 sqm",
+    features: ["2 Bedrooms", "2 Toilet & Bath", "Balconette", "Car Parking"],
+    image: "assets/Cielo.webp",
+    groundImage: "assets/Cielo-GF.PNG",
+    groundDetails: "Living/Dining/Kitchen<br>Powder Room<br>Stairs",
+    secondImage: "assets/Cielo-SF.PNG",
+    secondDetails: "Hallway<br>Bedroom 1<br>Masters Bedroom<br>Common T&B<br>Stairs"
+  },
+  {
+    name: "CORA UNIT",
+    floorArea: "52.73 sqm",
+    lotArea: "120.00 sqm",
+    features: ["3 Bedrooms", "1 Toilet & Bath", "Solar-Powered", "Battery & Storage Area", "Car Parking"],
+    image: "assets/Cora.png",
+    groundImage: "assets/Cora-GF.PNG",
+    groundDetails: "Living/Dining/Kitchen<br>Powder Room<br>Stairs"
+  },
+  {
+    name: "CALLA UNIT",
+    floorArea: "79.99 sqm",
+    lotArea: "100.00 sqm",
+    features: ["4 Bedrooms", "2 Toilet & Bath", "Balcony", "Car Parking", "Solar-Powered", "Battery & Storage Area"],
+    image: "assets/Calla.avif",
+    groundImage: "assets/Calla-GF.PNG",
+    groundDetails: "Living/Dining/Kitchen<br>Powder Room<br>Stairs",
+    secondImage: "assets/Calla-SF.PNG",
+    secondDetails: "Hallway<br>Bedroom 1<br>Masters Bedroom<br>Common T&B<br>Stairs"
   }
 ];
 
-let currentIndex = 2; // starts at Model B Mid Unit
+// Start at the first unit (Model A Mid)
+let currentIndex = 0;
 
 const unitName = document.getElementById("unitName");
 const floorArea = document.getElementById("floorArea");
@@ -285,22 +381,33 @@ const groundDetails = document.getElementById("groundDetails");
 const secondImage = document.getElementById("secondImage");
 const secondDetails = document.getElementById("secondDetails");
 
+// Main update function
 function updateUnit(index) {
   const unit = units[index];
+
   unitName.textContent = unit.name;
   floorArea.textContent = unit.floorArea;
   lotArea.textContent = unit.lotArea;
   unitImage.src = unit.image;
   groundImage.src = unit.groundImage;
   groundDetails.innerHTML = unit.groundDetails;
-  secondImage.src = unit.secondImage;
-  secondDetails.innerHTML = unit.secondDetails;
 
-  // update features list
+  // Update features
   featuresList.innerHTML = unit.features.map(f => `<li>${f}</li>`).join('');
+
+  // Handle second floor visibility
+  if (unit.secondImage && unit.secondDetails) {
+    secondImage.style.display = "block";
+    secondDetails.style.display = "block";
+    secondImage.src = unit.secondImage;
+    secondDetails.innerHTML = unit.secondDetails;
+  } else {
+    secondImage.style.display = "none";
+    secondDetails.style.display = "none";
+  }
 }
 
-// navigation buttons
+// Buttons: previous and next
 document.getElementById("prevUnit").addEventListener("click", () => {
   currentIndex = (currentIndex - 1 + units.length) % units.length;
   updateUnit(currentIndex);
@@ -310,8 +417,46 @@ document.getElementById("nextUnit").addEventListener("click", () => {
   currentIndex = (currentIndex + 1) % units.length;
   updateUnit(currentIndex);
 });
+
+// Initialize display
+updateUnit(currentIndex);
+
+  const gallery = document.getElementById('gallery');
+  const images = document.querySelectorAll('.amenities-container img');
+  const total = images.length;
+  let index = 0;
+
+  document.getElementById('nextBtn').addEventListener('click', () => {
+    index = (index + 1) % total;
+    gallery.style.transform = `translateX(-${index * 100}%)`;
+  });
+
+  document.getElementById('prevBtn').addEventListener('click', () => {
+    index = (index - 1 + total) % total;
+    gallery.style.transform = `translateX(-${index * 100}%)`;
+  });
+
+  const openFormBtn = document.getElementById('openFormBtn');
+  const closeFormBtn = document.getElementById('closeFormBtn');
+  const popupOverlay = document.getElementById('popupOverlay');
+
+  openFormBtn.addEventListener('click', () => {
+    popupOverlay.style.display = 'flex';
+  });
+
+  closeFormBtn.addEventListener('click', () => {
+    popupOverlay.style.display = 'none';
+  });
+
+  // Close popup when clicking outside the form
+  window.addEventListener('click', (e) => {
+    if (e.target === popupOverlay) {
+      popupOverlay.style.display = 'none';
+    }
+  });
+
 </script>
 
-</body>
 
+</body>
 </html>
