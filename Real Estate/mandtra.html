@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bexprestige - Mandtra</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="mandtra.css">
+</head>
+<body>
+    <header class="navbar">
+    <div class="logo">Bexprestige.</div>
+
+    <nav>
+        <ul class="nav-links">
+            <li><a href="homepage.html">Home</a></li>
+
+            <li class="dropdown">
+                <a href="#">Listings <i class="bi bi-caret-down-fill"></i></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">For Sale</a></li>
+                    <li><a href="#">For Rent</a></li>
+                </ul>
+            </li>
+
+            <li><a href="#">Members</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="nav-right">
+        <a href="tel:+63991112233" class="phone"><i class="bi bi-telephone"></i> +63991112233</a>
+    </div>
+</header>
+
+<div class="img-mandtra">
+  <div class="overlay">
+    <div class="overlay-content">
+      <h1>Mandtra Residence</h1>
+      <p>Experience luxury living at its finest.</p>
+      <button class="inquire-btn" id="openFormBtn">Inquire Now</button>
+    </div>
+  </div>
+</div>
+
+<!-- Inquiry Form Popup -->
+<div class="popup-overlay" id="popupOverlay">
+  <div class="popup-form">
+    <span class="close-btn" id="closeFormBtn">&times;</span>
+    <h2>Inquire About Mandtra Residence</h2>
+    <p>Fill out the form below and we’ll get back to you soon.</p>
+    <form id="inquiryForm">
+      <div class="form-group">
+        <label>Full Name</label>
+        <input type="text" placeholder="Enter your name" required>
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" placeholder="Enter your email" required>
+      </div>
+      <div class="form-group">
+        <label>Contact Number</label>
+        <input type="tel" placeholder="Enter your number" required>
+      </div>
+      <div class="form-group">
+        <label>Message</label>
+        <textarea rows="4" placeholder="Your message..." required></textarea>
+      </div>
+      <button type="submit" class="submit-btn">Send Inquiry</button>
+    </form>
+  </div>
+</div>
+
+<div class="details">
+  <h2>About Us</h2>
+  <div class="line"></div>
+  <p>Mandtra Residences is a modern urban development designed to bring comfort, 
+    convenience, and style into everyday living. Nestled in the heart of Mandaue 
+    City, it offers a perfect balance between accessibility and relaxation — 
+    close to major establishments, yet surrounded by a serene, community-focused 
+    environment. Featuring thoughtfully designed units and resort-style amenities, 
+    Mandtra Residences lets you experience the best of city life while enjoying the 
+    warmth of home.</p>
+</div>
+
+<section class="location-section">
+  <div class="address">
+    <div class="address-header">
+      <i class="bi bi-geo-alt-fill"></i>
+      <p>P. Basubas St., Tipolo, Mandaue City, Cebu</p>
+    </div>
+
+    <h3>Vicinity Map</h3>
+    <ul>
+      <li>1.2 km from San Miguel Corporation</li>
+      <li>1.9 km from J Centre Mall</li>
+      <li>2.7 km from CIC School</li>
+      <li>2.7 km from Maayo Medical Center</li>
+      <li>2.9 km from University of Cebu - Banilad Campus</li>
+      <li>3.5 km from Parkmall</li>
+      <li>3.9 km from University of San Carlos - Talamban Campus</li>
+      <li>4 km from SM City Cebu</li>
+      <li>4.1 km from IT Park Cebu City</li>
+      <li>5.3 km from Ayala Center Cebu</li>
+      <li>5.4 km from Pier 1 Terminal, Cebu City</li>
+      <li>7.9 km from Gullas College of Medicine</li>
+      <li>9.5 km from Mactan International Airport</li>
+    </ul>
+  </div>
+
+  <div class="mapouter">
+    <div class="gmap_canvas">
+      <iframe 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade" 
+        src="https://www.google.com/maps/embed/v1/place?q=Mandtra%20Residence%20Cebu&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<section class="siteplan-section">
+  <div class="siteplan-header">
+    <h2>Site Development Plan</h2>
+    <div class="line"></div>
+  </div>
+
+  <div class="siteplan-container">
+    <!-- LEFT SIDE: Image -->
+    <div class="siteplan">
+      <img src="assets2/mandtra-siteplan.png" alt="Mandtra Site Development Plan">
+    </div>
+
+    <!-- RIGHT SIDE: Legend -->
+    <div class="siteplan-legend">
+      <ol>
+        <li>Retail</li>
+        <li>Retail Drop-off</li>
+        <li>Towers 1, 2 & 3 Drop Off</li>
+        <li>Club House</li>
+        <li>Amenity Pool</li>
+        <li>Kid’s Play Area</li>
+        <li>Shower Area</li>
+        <li>Tower 1</li>
+        <li>Tower 2</li>
+        <li>Tower 3</li>
+      </ol>
+    </div>
+    <div class="tower-section">
+    <h3>Tower Two</h3>
+    <div class="line small-line"></div>
+    <img src="assets2/Tower1-mandtra.png" alt="Mandtra Tower 1" class="tower-image">
+  </div>
+  </div>
+</section>
+
+<section class="project-section">
+  <div class="project-container">
+    <div class="project-text">
+      <h3 class="title">THE PROJECT</h3>
+      <p class="label">PROJECT TYPE</p>
+      <p class="detail">Residential Condominium<br>with Retail Podium</p>
+
+      <p class="label">TOTAL LAND AREA</p>
+      <p class="detail">12,405 Square Meters</p>
+
+      <p class="label">NO. OF BUILDINGS</p>
+      <p class="detail">3 Residential Towers</p>
+
+      <p class="label">COMPONENTS</p>
+      <ul class="detail list">
+        <li>Three Residential Towers</li>
+        <li>Three Levels of Podium Parking</li>
+        <li>Generous Amenity Features</li>
+        <li>Retail Component</li>
+      </ul>
+    </div>
+
+    <div class="project-image">
+      <img src="assets2/mandtrabuilding.png" alt="Project Buildings" />
+    </div>
+  </div>
+</section>
+
+<section class="building-features-section">
+  <div class="building-container">
+
+    <div class="building-image">
+      <img src="assets2/mandtra.png" alt="Building Features Image">
+    </div>
+
+    <div class="building-text">
+      <p class="subheading">MANDTRA RESIDENCES</p>
+      <h3 class="title">BUILDING FEATURES</h3>
+
+      <div class="features-grid">
+        <ul>
+          <li>Lobby with Reception Area</li>
+          <li>3 Passenger Elevators</li>
+          <li>Mail Room</li>
+          <li>Three-Level Podium Parking</li>
+          <li>24/7 Security</li>
+        </ul>
+
+        <ul>
+          <li>100% Back-up Power</li>
+          <li>Garbage Holding Room per Level</li>
+          <li>Administration Office</li>
+          <li>Property Management Services</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+    const openFormBtn = document.getElementById('openFormBtn');
+  const closeFormBtn = document.getElementById('closeFormBtn');
+  const popupOverlay = document.getElementById('popupOverlay');
+
+  openFormBtn.addEventListener('click', () => {
+    popupOverlay.style.display = 'flex';
+  });
+
+  closeFormBtn.addEventListener('click', () => {
+    popupOverlay.style.display = 'none';
+  });
+
+  // Close popup when clicking outside the form
+  window.addEventListener('click', (e) => {
+    if (e.target === popupOverlay) {
+      popupOverlay.style.display = 'none';
+    }
+  });
+</script>
+
+</body>
+</html>
