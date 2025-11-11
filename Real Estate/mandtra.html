@@ -214,10 +214,80 @@
         </ul>
       </div>
     </div>
-
   </div>
 </section>
 
+<section class="floor-plans">
+  <p class="subheading">THE RESIDENTIAL</p>
+  <p class="title">Floor Plans</p>
+
+  <div class="gallery-container">
+    <button class="arrow left" onclick="prevUnitImage()">&#10094;</button>
+
+    <div class="gallery-track">
+      <img src="assets2/floorplan1.PNG" class="active">
+      <img src="assets2/floorplan2.PNG">
+      <img src="assets2/floorplan3.PNG">
+      <img src="assets2/floorplan4.PNG">
+    </div>
+
+    <button class="arrow right" onclick="nextUnitImage()">&#10095;</button>
+  </div>
+</section>
+
+<section class="the-unit">
+  <div class="unit-header">
+    <p class="subheading">MANDTRA RESIDENCES</p>
+    <p class="title">THE UNIT</p>
+    <p class="text">Types & Plans</p>
+  </div>
+  <div class="unit-container">
+
+  <div class="unit-top">
+    <img src="assets2/studio-unit.PNG" alt="Studio Unit">
+  </div>
+
+  <div class="unit-bottom">
+    <img src="assets2/studio-unit-bedroom.PNG" alt="Studio Unit Bedroom">
+    <img src="assets2/studio-unit-living.PNG" alt="Studio Unit Living Area">
+  </div>
+  <hr class="divider">
+  
+  <div class="unit-top">
+    <img src="assets2/1-bedroom-unit.PNG" alt="1 Bedroom Unit">
+  </div>
+  <div class="unit-bottom">
+    <img src="assets2/1-bedroom-unit-bd.PNG" alt="1 Bedroom Unit Bedroom">
+    <img src="assets2/1-bedroom-unit-liv.PNG" alt="1 Bedroom Unit Living Area">
+  </div>
+</div>
+</section>
+
+<section class="amenities">
+  <div class="amenities-header">
+    <p class="subheading">MANDTRA RESIDENCES</p>
+    <p class="title">AMENITIES</p>
+  </div>
+  <div class="gallery-wrapper" id="gallery">
+    <button class="arrow left" id="prevBtn"><i class="bi bi-chevron-left"></i></button>
+
+    <div class="amenities-container">
+      <img src="assets2/retail-podium.PNG">
+      <img src="assets2/courtyard.PNG">
+      <img src="assets2/jogging-paths.PNG">
+      <img src="assets2/pool.PNG">
+      <img src="assets2/children-area.PNG">
+      <img src="assets2/function-room.PNG">
+      <img src="assets2/chapel.PNG">
+      <img src="assets2/fitness-gym.PNG">
+      <img src="assets2/wellness-lounge.PNG">
+      <img src="assets2/sky-garden.PNG">
+      <img src="assets2/sky-lounge.PNG">
+    </div>
+
+    <button class="arrow right" id="nextBtn"><i class="bi bi-chevron-right"></i></button>
+  </div>
+</section>
 <script>
     const openFormBtn = document.getElementById('openFormBtn');
   const closeFormBtn = document.getElementById('closeFormBtn');
@@ -237,6 +307,61 @@
       popupOverlay.style.display = 'none';
     }
   });
+
+
+  /* ==========================
+   GALLERY A: UNIT GALLERY
+========================== */
+
+let unitIndex = 0; 
+const unitTrack = document.querySelector('.gallery-track');
+const unitImages = document.querySelectorAll('.gallery-track img');
+
+function updateUnitGallery() {
+  unitTrack.style.transform = `translateX(${ -unitIndex * 100 }%)`;
+}
+
+function nextUnitImage() {
+  unitIndex = (unitIndex + 1) % unitImages.length;
+  updateUnitGallery();
+}
+
+function prevUnitImage() {
+  unitIndex = (unitIndex - 1 + unitImages.length) % unitImages.length;
+  updateUnitGallery();
+}
+
+// Buttons for Unit Gallery
+document.getElementById("prevUnit").addEventListener("click", prevUnitImage);
+document.getElementById("nextUnit").addEventListener("click", nextUnitImage);
+
+// Initialize Unit gallery
+updateUnitGallery();
+
+
+
+/* ==========================
+   GALLERY B: AMENITIES GALLERY
+========================== */
+
+const gallery = document.getElementById('gallery');
+const images = gallery.querySelectorAll('img');
+const total = images.length;
+let index = 0;
+
+document.getElementById('nextBtn').addEventListener('click', () => {
+  index = (index + 1) % total; // go to next image
+  gallery.style.transform = `translateX(-${index * 100}%)`;
+});
+
+document.getElementById('prevBtn').addEventListener('click', () => {
+  index = (index - 1 + total) % total; // go to previous image
+  gallery.style.transform = `translateX(-${index * 100}%)`;
+});
+
+
+
+
 </script>
 
 </body>
