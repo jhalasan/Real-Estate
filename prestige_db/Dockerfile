@@ -18,3 +18,10 @@ EXPOSE 10000
 
 # Start Apache in the foreground
 CMD ["apache2-foreground"]
+
+# Copy public folder to Apache web root
+COPY public/ /var/www/html/
+
+# Copy other code somewhere else (optional)
+COPY src/ /var/www/src/
+COPY config/ /var/www/config/
