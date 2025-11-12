@@ -1,8 +1,11 @@
 # Use the official PHP image with Apache
-FROM php:8.3.6
+FROM php:8.3.6-apache
 
-# Enable PDO PostgreSQL extension
-RUN docker-php-ext-install pdo pdo_pgsql
+# Install PostgreSQL client libraries and other build tools
+RUN apt-get update && \
+    apt-get install -y libpq-dev gcc make autoconf && \
+    docker-php-ext-install pdo pdo_pgsql && \
+    apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Set working directory
 WORKDIR /var/www/html
