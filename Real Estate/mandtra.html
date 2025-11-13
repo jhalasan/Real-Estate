@@ -8,6 +8,47 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="mandtra.css">
 </head>
+
+<script type="module">
+  import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
+
+  const supabaseUrl = 'https://osywaesdozykwhupydzy.supabase.co';
+  const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9zeXdhZXNkb3p5a3dodXB5ZHp5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjI5ODE0OTYsImV4cCI6MjA3ODU1NzQ5Nn0.8Yb5tNAMsPkqoWPvsMsqSf6migp6BA5d9dbOdHyG-dE';
+  const supabase = createClient(supabaseUrl, supabaseKey);
+
+  const inquiryOverlay = document.getElementById('popupOverlay');
+  const closeInquiryBtn = document.getElementById('closeFormBtn');
+  const inquiryForm = document.getElementById('inquiryForm');
+
+  closeInquiryBtn.addEventListener('click', () => {
+    inquiryOverlay.style.display = 'none';
+  });
+
+  inquiryForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const name = inquiryForm.querySelector('input[type="text"]').value.trim();
+    const email = inquiryForm.querySelector('input[type="email"]').value.trim();
+    const phone = inquiryForm.querySelector('input[type="tel"]').value.trim();
+    const message = inquiryForm.querySelector('textarea').value.trim();
+
+    const property_id = null;
+
+    const { data, error } = await supabase.from('inquiries').insert([
+      { name, email, phone, message, property_id }
+    ]);
+
+    if (error) {
+      console.error('Error sending inquiry:', error.message);
+      alert('There was a problem sending your inquiry.');
+    } else {
+      alert('Inquiry sent successfully!');
+      inquiryForm.reset();
+      inquiryOverlay.style.display = 'none';
+    }
+  });
+</script>
+
 <body>
     <header class="navbar">
     <div class="logo">Bexprestige.</div>

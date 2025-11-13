@@ -7,6 +7,39 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
   <link rel="stylesheet" href="login.css">
 </head>
+
+<script type="module">
+  import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
+
+  const supabaseUrl = 'https://osywaesdozykwhupydzy.supabase.co';
+  const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9zeXdhZXNkb3p5a3dodXB5ZHp5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjI5ODE0OTYsImV4cCI6MjA3ODU1NzQ5Nn0.8Yb5tNAMsPkqoWPvsMsqSf6migp6BA5d9dbOdHyG-dE';
+  const supabase = createClient(supabaseUrl, supabaseAnonKey);
+
+  const loginForm = document.getElementById('loginform');
+
+  loginForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const email = document.getElementById('email').value.trim();
+    const password = document.getElementById('password').value.trim();
+
+    const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+
+    if (error) {
+      alert('Login failed: ' + error.message);
+      return;
+    }
+
+    if (!data.user.email_confirmed_at) {
+      alert('Please verify your email before logging in!');
+      return;
+    }
+
+    console.log('Logged in user:', data.user);
+    alert(`Login successful! User ID: ${data.user.id}`);
+  });
+</script>
+
 <body>
   <div class="login-container">
     <div class="left-section">
