@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bexprestige - Dusit Thani Davao Residence</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="dusit-thani.css">
+</head>
+<body>
+    <header class="navbar">
+    <div class="logo">Bexprestige.</div>
+
+    <nav>
+        <ul class="nav-links">
+            <li><a href="homepage.html">Home</a></li>
+
+            <li class="dropdown">
+                <a href="#">Listings <i class="bi bi-caret-down-fill"></i></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">For Sale</a></li>
+                    <li><a href="#">For Rent</a></li>
+                </ul>
+            </li>
+
+            <li><a href="#">Members</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="nav-right">
+        <a href="tel:+63991112233" class="phone"><i class="bi bi-telephone"></i> +63991112233</a>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="overlay">
+        <div class="overlay-content">
+            <h1>Dusit Thani Davao Residence</h1>
+            <p>Your Luxury Living Awaits in the Heart of Davao City</p>
+            <button class="inquire-btn" id="openFormBtn">Inquire Now</button>
+        </div>
+    </div>
+</section>
+
+<!-- Inquiry Form Popup -->
+<div class="popup-overlay" id="popupOverlay">
+  <div class="popup-form">
+    <span class="close-btn" id="closeFormBtn">&times;</span>
+    <h2>Inquire About Mandtra Residence</h2>
+    <p>Fill out the form below and we’ll get back to you soon.</p>
+    <form id="inquiryForm">
+      <div class="form-group">
+        <label>Full Name</label>
+        <input type="text" placeholder="Enter your name" required>
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" placeholder="Enter your email" required>
+      </div>
+      <div class="form-group">
+        <label>Contact Number</label>
+        <input type="tel" placeholder="Enter your number" required>
+      </div>
+      <div class="form-group">
+        <label>Message</label>
+        <textarea rows="4" placeholder="Your message..." required></textarea>
+      </div>
+      <button type="submit" class="submit-btn">Send Inquiry</button>
+    </form>
+  </div>
+</div>
+
+
+<script>
+    const openFormBtn = document.getElementById('openFormBtn');
+    const closeFormBtn = document.getElementById('closeFormBtn');
+    const popupOverlay = document.getElementById('popupOverlay');
+
+    openFormBtn.addEventListener('click', () => popupOverlay.style.display = 'flex');
+    closeFormBtn.addEventListener('click', () => popupOverlay.style.display = 'none');
+    window.addEventListener('click', e => {
+    if (e.target === popupOverlay) popupOverlay.style.display = 'none';
+  });
+</script>
+</body>
+</html>
