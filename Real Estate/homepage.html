@@ -11,32 +11,34 @@
 </head>
 <body>
 
-  <header class="navbar">
-    <div class="logo">Bexprestige.</div>
-   <nav>
-  <ul class="nav-links">
-    <li><a href="homepage.html">Home</a></li>
+  <!-- NAVBAR WITH LOGIN / PROFILE MERGED -->
+<header class="navbar">
+    <div class="logo">BexPrestige.</div>
 
-    <!-- Dropdown Menu -->
-    <li class="dropdown">
-      <a href="#">Listings <i class="bi bi-caret-down-fill"></i></a>
-      <ul class="dropdown-menu">
-        <li><a href="#">For Sale</a></li>
-        <li><a href="#">For Rent</a></li>
-      </ul>
-    </li>
+        <nav>
+        <ul class="nav-links">
+            <li><a href="homepage.html">Home</a></li>
 
-    <li><a href="#">Members</a></li>
-    <li><a href="#">Blog</a></li>
-    <li><a href="#">About Us</a></li>
-    <li><a href="#">Contact</a></li>
-  </ul>
-</nav>
+            <li class="dropdown">
+                <a href="#">Listings <i class="bi bi-caret-down-fill"></i></a>
+                <ul class="dropdown-menu">
+                    <li><a href="for-sale.html">For Sale</a></li>
+                    <li><a href="for-rent.html">For Rent</a></li>
+                </ul>
+            </li>
 
-    <div class="nav-right">
-      <a href="tel:+63991112233" class="phone"><i class="bi bi-telephone"></i> +63991112233</a>
+            <li><a href="members.html">Members</a></li>
+            <li><a href="agent-recruitment.html">Agent Recruitment</a></li>
+            <li><a class="active" href="about-us.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- RIGHT SIDE LOGIN / PROFILE -->
+    <div class="nav-right" id="accountArea">
+        <!-- JS generates Login button OR Profile dropdown -->
     </div>
-  </header>
+</header>
 
   <section class="hero">
     <div class="overlay">
@@ -142,5 +144,54 @@
     </div>
   </div>
 </footer>
+
+<!-- LOGIN / PROFILE JS MERGED -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const accountArea = document.getElementById("accountArea");
+
+    // TEMPORARY SIMULATED LOGIN DATA
+    let user = JSON.parse(localStorage.getItem("user"));
+
+    function renderAccount() {
+        if (!user) {
+            // NOT LOGGED IN
+            accountArea.innerHTML = `
+                <a class="account-btn" href="login.html">Login / Create Account</a>
+            `;
+        } else {
+            // LOGGED IN → SHOW PROFILE
+            accountArea.innerHTML = `
+                <div class="profile-container" id="profileMenu">
+                    <span class="profile-name">👤 ${user.fullname}</span>
+                    <div class="profile-dropdown">
+                        <a href="#">Welcome ${user.fullname}</a>
+                        <a href="#">Change Password</a>
+                        <a href="#">Change Phone Number</a>
+                        <a href="about-us.html">About Us</a>
+                        <a href="contact.html">Contact</a>
+                        <a href="#" id="signoutBtn">Sign Out</a>
+                    </div>
+                </div>
+            `;
+
+            // Dropdown toggle
+            const profileMenu = document.getElementById("profileMenu");
+            profileMenu.addEventListener("click", () => {
+                profileMenu.classList.toggle("active");
+            });
+
+            // Signout
+            document.getElementById("signoutBtn").addEventListener("click", () => {
+                localStorage.removeItem("user");
+                location.reload();
+            });
+        }
+    }
+
+    renderAccount();
+});
+</script>
+
 </body>
 </html>

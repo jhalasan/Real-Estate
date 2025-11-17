@@ -53,11 +53,10 @@
     gap: 15px;
   }
   
-  .phone {
-    color: white;
-    text-decoration: none;
-    font-size: 14px;
-  }
+  .account-btn {
+  color: white;
+  
+}
 
   /* Hero Section */
   .hero {
@@ -210,21 +209,7 @@
     line-height: 1;
   }
   
-  /* Individual badge colors */
-  .sale {
-    background-color: #198754; /* green */
-  }
-  
-  .rent {
-    background-color: #0dcaf0; /* blue */
-    color: #000;
-  }
-  
-  .featured {
-    background-color: #ffc107; /* yellow */
-    color: #000;
-  }
-  
+
   /* Badge Container — fixes alignment */
   .home-badges {
     position: absolute;
