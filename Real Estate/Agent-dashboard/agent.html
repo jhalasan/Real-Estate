@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agent Dashboard</title>
+<link rel="stylesheet" href="agent.css">
+</head>
+<body>
+
+<div id="mainContent"> 
+
+<div class="dashboard">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <h2 class="logo">BexPrestige</h2>
+
+        <nav class="menu">
+            <a href="#" class="active">🏠 Listings</a>
+            <a href="#">➕ Add Property</a>
+            <a href="report.html">📊 Reports</a>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="content">
+        <div class="header-bar">
+            <h1 class="page-title">Listings</h1>
+
+            <!-- Search Bar -->
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search by ID, title, location...">
+            </div>
+        </div>
+
+        <div class="table-wrapper">
+            <table id="propertyTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Property</th>
+                        <th>Author</th>
+                        <th>Category</th>
+                        <th>Description</th>
+                        <th>Location</th>
+                        <th>Filters</th>
+                        <th>Date</th>
+                        <th>Photo</th>
+                        <th>Map</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>0012</td>
+                        <td>CasaMira</td>
+                        <td>Frank D.</td>
+                        <td>Subdivision</td>
+                        <td>Affordable housing near downtown</td>
+                        <td>Barangay Mabuhay, GSC</td>
+                        <td>3 beds, 2 baths, 1 parking</td>
+                        <td>Nov 06, 2025</td>
+                        <td>
+                            <div class="photo-box">
+                                 <img src="..." class="table-img">
+                                </div>
+                            </td>
+
+                        <td>
+                            <div class="photo-box">
+                                <img src="..." class="table-img">
+                            </div>
+                       </td>
+                    </tr>
+                    <tr>
+                        <td>0013</td>
+                        <td>BlueHaven</td>
+                        <td>Sarah C.</td>
+                        <td>Condo</td>
+                        <td>Modern unit with sea view</td>
+                        <td>Cebu City</td>
+                        <td>1 bed, 1 bath</td>
+                        <td>Oct 22, 2025</td>
+                        <td>
+                            <div class="photo-box">
+                                <img src="..." class="table-img">
+                            </div>
+                                                </td>
+
+                        <td>
+                            <div class="photo-box">
+                              <img src="..." class="table-img">
+                            </div>
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+</div>
+</div> 
+
+<!-- ADD PROPERTY MODAL -->
+<div id="addPropertyModal" class="modal">
+    <div class="modal-content redesigned">
+        <span class="remove-img closeModal">&times;</span>
+        <h2 class="modal-title">Add New Property</h2>
+
+        <form id="propertyForm" class="property-form">
+            <!-- Basic Info -->
+            <div class="section">
+                <h3 class="section-title">Basic Information</h3>
+                <div class="form-row">
+                    <div class="input-group">
+                        <label>Property Title</label>
+                        <input type="text" id="title" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Category</label>
+                        <input type="text" id="category" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="input-group">
+                        <label>Place</label>
+                        <input type="text" id="place" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Price</label>
+                        <input type="number" id="price" required>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Property Details -->
+            <div class="section">
+                <h3 class="section-title">Property Details</h3>
+                <div class="input-group full">
+                    <label>Description</label>
+                    <textarea id="description" rows="3" required></textarea>
+                </div>
+                <div class="form-row">
+                    <div class="input-group">
+                        <label>Filters</label>
+                        <input type="text" id="filters" placeholder="e.g. 3 beds, 2 baths">
+                    </div>
+                    <div class="input-group">
+                        <label>Listing Type</label>
+                        <select id="listingType">
+                            <option>For Sale</option>
+                            <option>For Rent</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Agent & Contact -->
+            <div class="section">
+                <h3 class="section-title">Agent & Contact</h3>
+                <div class="form-row">
+                    <div class="input-group">
+                        <label>Agent Name</label>
+                        <input type="text" id="author" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Contact Number</label>
+                        <input type="text" id="contact" required>
+                    </div>
+                </div>
+                <div class="input-group full">
+                    <label>Email</label>
+                    <input type="email" id="email">
+                </div>
+            </div>
+
+            
+        <!-- Location & Media -->
+          
+<div class="section">
+    <h3 class="section-title">Location & Media</h3>
+    <div class="input-group full">
+        <label>Location (GPS link or text)</label>
+        <input type="text" id="location">
+    </div>
+    <div class="form-row">
+        <div class="input-group">
+            <label>Attach Photos</label>
+            <input type="file" id="photoUpload" accept="image/*" multiple>
+            <div id="photoPreviewContainer" class="preview-container"></div>
+        </div>
+
+        
+    </div>
+</div>
+
+
+<div class="input-group">
+    <label>Attach Map</label>
+    <input type="file" id="mapUpload" accept="image/*" multiple>
+    <div id="mapPreviewContainer" class="preview-container"></div>
+</div>
+
+
+ <div>
+
+           <button type="submit" class="add-btn">Add Property</button>
+        </form>
+    </div>
+    <div id="imageGalleryModal" class="modal">
+    <span class="closeModal" id="closeGallery">&times;</span>
+    <div class="gallery-content">
+        <img id="galleryImg" src="" alt="Property Image">
+        <div id="galleryControls">
+            <button id="prevBtn">Prev</button>
+            <button id="nextBtn">Next</button>
+        </div>
+    </div>
+    
+</div>
+
+</div>
+
+<script src="agent.js"></script>
+</body>
+</html>

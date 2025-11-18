@@ -1,0 +1,145 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+body {
+    margin: 0;
+    padding: 0;
+    background: #e8f1fb;
+    font-family: 'Poppins', sans-serif;
+    color: #1c2e4a;
+}
+
+/* Layout */
+.layout {
+    display: flex;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 240px;
+    height: 100vh;
+    background: #1f497d;  
+    color: white;
+    padding: 25px;
+    position: fixed;       
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+}
+
+.logo {
+    margin-bottom: 30px;
+    font-size: 22px;      
+    font-weight: 600;
+    cursor: default;
+}
+
+/* Navigation links in sidebar */
+.menu a,
+.nav-item {
+    display: block;
+    padding: 10px 0;
+    color: white;
+    opacity: 0.9;
+    text-decoration: none;
+    font-size: 16px;
+    transition: opacity 0.2s ease;
+}
+
+.menu a.active,
+.nav-item.active,
+.menu a:hover,
+.nav-item:hover {
+    opacity: 1;
+    font-weight: 600;
+}
+
+/* Main content adjusted for sidebar */
+.main {
+    flex: 1;
+    padding: 40px;
+    margin-left: 240px; 
+}
+
+/* Page title */
+.page-title {
+    font-size: 32px;
+    font-weight: 600;
+}
+
+/* Card container */
+.card {
+    background: white;
+    padding: 25px;
+    margin-top: 25px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+/* Table */
+.report-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.report-table thead {
+    background: #d8e6f7;
+}
+
+.report-table th {
+    padding: 12px;
+    text-align: left;
+    font-weight: 600;
+}
+
+.report-table td {
+    padding: 18px 12px;
+    border-bottom: 1px solid #e8eff5;
+    vertical-align: middle;
+}
+
+/* Property Image */
+.property-photo {
+    width: 120px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+/* Confirmation Icons */
+.status {
+    padding: 5px 10px;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: default;
+}
+
+.status.no {
+    color: #d9534f;
+}
+
+.status.yes {
+    color: #5cb85c;
+}
+
+.btn-accept, .btn-remove {
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-right: 6px;
+}
+
+.btn-accept {
+    background: #4CAF50;
+    color: white;
+}
+
+.btn-remove {
+    background: #d9534f;
+    color: white;
+}

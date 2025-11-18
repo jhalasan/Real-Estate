@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reports | BlueEstate</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="report.css">
+</head>
+<body>
+
+<div class="layout">
+
+    <!-- Sidebar (copied design from picture 2) -->
+    <aside class="sidebar">
+        <h2 class="logo">BexPrestige</h2>
+        <nav>
+            <a href="agent.html" class="nav-item">🏠 Listings</a>
+            <a href="#" class="nav-item">➕ Add Property</a>
+            <a href="#" class="nav-item active">📊 Reports</a>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main">
+        <h1 class="page-title">Reports</h1>
+
+        <div class="card">
+
+            <table class="report-table">
+                <thead>
+                    <tr>
+                        <th>Property</th>
+                        <th>Image</th>
+                        <th>Agent</th>
+                        <th>User</th>
+                        <th>Phone</th>
+                        <th>Note</th>
+                        <th>Confirmation</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>CasaMira</td>
+
+                        <td>
+                            <img src="assets/Casamirapic.webp" class="property-photo">
+                        </td>
+
+                        <td>Frank D. Sinatra</td>
+                        <td>Clarence J Respecia</td>
+                        <td>09922353553</td>
+                        <td>Interested</td>
+
+                      
+                        <td class="confirm-col">
+    
+                            <button class="btn-remove" data-id="INQUIRY_ID">✖</button>
+    
+                            <button class="btn-accept" data-id="INQUIRY_ID">✔</button>
+
+                        </td>
+
+                    </tr>
+                </tbody>
+
+            </table>
+
+        </div>
+    </main>
+
+</div>
+<script src="report.js"></script>
+
+</body>
+</html>
