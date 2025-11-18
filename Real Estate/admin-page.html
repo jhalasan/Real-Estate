@@ -40,6 +40,7 @@
 
     .sidebar ul {
       list-style: none;
+      padding: 0;
     }
 
     .sidebar ul li {
@@ -56,6 +57,15 @@
 
     .sidebar ul li:hover {
       background: #374151;
+    }
+
+    .sidebar a {
+      color: white;
+      text-decoration: none;
+      display: flex;
+      width: 100%;
+      align-items: center;
+      gap: 10px;
     }
 
     /* Main Content */
@@ -92,34 +102,6 @@
       margin-bottom: 10px;
     }
 
-    /* Calendar Placeholder */
-    .calendar-box {
-      background: #fff;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      margin-top: 30px;
-      height: 420px;
-    }
-
-    /* Table */
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 15px;
-    }
-
-    th, td {
-      padding: 12px;
-      border-bottom: 1px solid #ddd;
-      text-align: left;
-      font-size: 14px;
-    }
-
-    th {
-      background: #e5e7eb;
-      font-weight: 600;
-    }
   </style>
 </head>
 <body>
@@ -128,8 +110,8 @@
 <div class="sidebar">
   <h2>Admin Panel</h2>
   <ul>
-    <li><i class="bi bi-chat-left-text"></i> Inquiries</li>
-    <li><i class="bi bi-people"></i> Career Applicants</li>
+    <li><a href="inquire.html"><i class="bi bi-chat-left-text"></i> Inquiries</a></li>
+    <li><a href="career-application.html"><i class="bi bi-people"></i> Career Applicants</a></li>
     <li><i class="bi bi-shield-lock"></i> Entry Logs</li>
     <li><i class="bi bi-pencil-square"></i> Auditing</li>
     <li><i class="bi bi-newspaper"></i> Real Estate News</li>
@@ -141,9 +123,9 @@
 <!-- MAIN CONTENT -->
 <div class="main-content">
 
-  <!-- DASHBOARD SUMMARY -->
   <h1 class="section-title">Dashboard Overview</h1>
-  <div class="cards" style="margin-bottom:40px;">
+
+  <div class="cards">
     <div class="card">
       <h3>Total Inquiries</h3>
       <p>-</p>
@@ -157,34 +139,6 @@
       <p>-</p>
     </div>
   </div>
-
-  <h1 class="section-title">Inquiries</h1>
-  <table>
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Contact</th>
-      <th>Date</th>
-      <th>Message</th>
-    </tr>
-    <tr>
-     
-    </tr>
-  </table>
-
-  <h1 class="section-title" style="margin-top:40px;">Career Applicants</h1>
-  <table>
-    <tr>
-      <th>Name</th>
-      <th>Position</th>
-      <th>Email</th>
-      <th>Status</th>
-      <th>Date Applied</th>
-    </tr>
-    <tr>
-    
-    </tr>
-  </table>
 
 </div>
 
