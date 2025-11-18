@@ -146,52 +146,79 @@
 </footer>
 
 <!-- LOGIN / PROFILE JS MERGED -->
-<script>
-document.addEventListener("DOMContentLoaded", () => {
+<script type="module">
+import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
+
+const supabaseUrl = 'https://osywaesdozykwhupydzy.supabase.co';
+const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9zeXdhZXNkb3p5a3dodXB5ZHp5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjI5ODE0OTYsImV4cCI6MjA3ODU1NzQ5Nn0.8Yb5tNAMsPkqoWPvsMsqSf6migp6BA5d9dbOdHyG-dE';
+const supabase = createClient(supabaseUrl, supabaseAnonKey);
+
+document.addEventListener("DOMContentLoaded", async () => {
     const accountArea = document.getElementById("accountArea");
 
-    // TEMPORARY SIMULATED LOGIN DATA
-    let user = JSON.parse(localStorage.getItem("user"));
+    // Get current session
+    const { data: { session }, error } = await supabase.auth.getSession();
 
-    function renderAccount() {
-        if (!user) {
-            // NOT LOGGED IN
-            accountArea.innerHTML = `
-                <a class="account-btn" href="login.html">Login / Create Account</a>
-            `;
-        } else {
-            // LOGGED IN → SHOW PROFILE
-            accountArea.innerHTML = `
-                <div class="profile-container" id="profileMenu">
-                    <span class="profile-name">👤 ${user.fullname}</span>
-                    <div class="profile-dropdown">
-                        <a href="#">Welcome ${user.fullname}</a>
-                        <a href="#">Change Password</a>
-                        <a href="#">Change Phone Number</a>
-                        <a href="about-us.html">About Us</a>
-                        <a href="contact.html">Contact</a>
-                        <a href="#" id="signoutBtn">Sign Out</a>
-                    </div>
+    if (!session || !session.user) {
+        accountArea.innerHTML = `<a class="account-btn" href="login.html">Login / Create Account</a>`;
+    } else {
+        const authId = session.user.id;
+
+        // Fetch user name from 'accounts' table using auth_id
+        const { data: account, error: accountError } = await supabase
+            .from('accounts')
+            .select('name')
+            .eq('auth_id', authId)
+            .single();
+
+        const fullname = account?.name || "User";
+
+        // Render profile dropdown showing full name
+        accountArea.innerHTML = `
+            <div class="profile-container" id="profileMenu" style="position:relative; cursor:pointer;">
+                <span class="profile-icon">👤</span>
+                <span class="profile-name">${fullname}</span>
+                <div class="profile-dropdown" style="
+                    display:none;
+                    position:absolute;
+                    top:100%;
+                    right:0;
+                    background:#fff;
+                    border:1px solid #ccc;
+                    border-radius:8px;
+                    min-width:200px;
+                    box-shadow:0 2px 10px rgba(0,0,0,0.1);
+                    z-index:1000;
+                ">
+                    <p style='padding:10px; font-weight:600;'>${fullname}</p>
+                    <a href="profile.html" style="display:block; padding:10px; text-decoration:none; color:#333;">Profile</a>
+                    <a href="#" id="signoutBtn" style="display:block; padding:10px; text-decoration:none; color:#333;">Sign Out</a>
                 </div>
-            `;
+            </div>
+        `;
 
-            // Dropdown toggle
-            const profileMenu = document.getElementById("profileMenu");
-            profileMenu.addEventListener("click", () => {
-                profileMenu.classList.toggle("active");
-            });
+        const profileMenu = document.getElementById("profileMenu");
+        const dropdown = profileMenu.querySelector(".profile-dropdown");
 
-            // Signout
-            document.getElementById("signoutBtn").addEventListener("click", () => {
-                localStorage.removeItem("user");
-                location.reload();
-            });
-        }
+        profileMenu.addEventListener("click", (e) => {
+            e.stopPropagation();
+            dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+        });
+
+        document.addEventListener("click", () => {
+            dropdown.style.display = "none";
+        });
+
+        document.getElementById("signoutBtn").addEventListener("click", async (e) => {
+            e.preventDefault();
+            await supabase.auth.signOut();
+            location.reload();
+        });
     }
-
-    renderAccount();
 });
 </script>
+
+
 
 </body>
 </html>
