@@ -10,6 +10,73 @@
     <link rel="stylesheet" href="agent-recruitment.css">
 </head>
 
+<script type="module">
+  import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
+
+  const supabaseUrl = 'https://osywaesdozykwhupydzy.supabase.co';
+  const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9zeXdhZXNkb3p5a3dodXB5ZHp5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjI5ODE0OTYsImV4cCI6MjA3ODU1NzQ5Nn0.8Yb5tNAMsPkqoWPvsMsqSf6migp6BA5d9dbOdHyG-dE';
+  const supabase = createClient(supabaseUrl, supabaseAnonKey);
+
+  const recruitForm = document.getElementById('recruitform');
+
+  recruitForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const address = document.getElementById('address').value.trim();
+    const cvFile = document.getElementById('cv_file').files[0]; 
+
+    if (!cvFile) {
+        alert('Please upload your CV/Resume.');
+        return;
+    }
+
+    const bucketName = 'applicant-cvs';
+    const fileExtension = cvFile.name.split('.').pop();
+    const filePath = `${email.toLowerCase().replace(/[^a-z0-9]/g, '_')}_${Date.now()}.${fileExtension}`;
+    
+    try {
+        const { error: uploadError } = await supabase.storage
+            .from(bucketName)
+            .upload(filePath, cvFile, {
+                cacheControl: '3600',
+                upsert: false
+            });
+
+        if (uploadError) {
+            console.error('Storage Upload Error:', uploadError.message);
+            alert('Failed to upload CV. Please try again.');
+            return;
+        }
+
+        const { error: dbError } = await supabase
+            .from('recruitment_applicants')
+            .insert([{ 
+                name, 
+                email, 
+                phone, 
+                address, 
+                cv_storage_path: `${bucketName}/${filePath}` 
+            }]);
+
+        if (dbError) {
+            console.error('Database Insert Error:', dbError.message);
+            alert('Application failed to save details. Please contact support.');
+            return;
+        }
+
+        alert('✅ Application Submitted Successfully!');
+        recruitForm.reset();
+
+    } catch (error) {
+        console.error('A critical error occurred:', error.message);
+        alert('An unexpected error occurred during submission.');
+    }
+  });
+</script>
+
 <body>
 
 <!-- ===================================================== -->
@@ -145,24 +212,31 @@
 
     <p>Fill out the form below and our team will contact you within 24–48 hours.</p>
 
-    <form class="apply-form" action="#" method="POST">
+    <form class="apply-form" id="recruitform">
 
         <label>Full Name</label>
-        <input type="text" placeholder="Enter your full name">
+        <input type="text" id="name" placeholder="Enter your full name">
 
         <label>Email Address</label>
-        <input type="email" placeholder="Enter your email">
+        <input type="email" id="email" placeholder="Enter your email">
 
         <label>Phone Number</label>
-        <input type="text" placeholder="Enter your phone number">
+        <input type="text" id="phone" placeholder="Enter your phone number">
 
         <label>Address</label>
-        <input type="text" placeholder="Your current address">
+        <input type="text" id="address" placeholder="Your current address">
 
-        <label>Experience (Optional)</label>
-        <textarea placeholder="Tell us if you have experience in sales or real estate"></textarea>
+        <label>Upload Your CV/Resume (Required)</label>
+        <input 
+            type="file" 
+            id="cv_file" 
+            name="cv_file" 
+            accept=".pdf,.doc,.docx" 
+            required
+        >
 
         <button type="submit">Submit Application</button>
+
     </form>
 </section>
 
