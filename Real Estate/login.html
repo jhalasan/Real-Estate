@@ -8,44 +8,6 @@
   <link rel="stylesheet" href="styles/login.css">
 </head>
 
-<script type="module">
-  import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
-
-  const supabaseUrl = 'https://osywaesdozykwhupydzy.supabase.co';
-  const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9zeXdhZXNkb3p5a3dodXB5ZHp5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjI5ODE0OTYsImV4cCI6MjA3ODU1NzQ5Nn0.8Yb5tNAMsPkqoWPvsMsqSf6migp6BA5d9dbOdHyG-dE';
-  const supabase = createClient(supabaseUrl, supabaseAnonKey);
-
-  const loginForm = document.getElementById('loginform');
-
-  loginForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    const email = document.getElementById('email').value.trim();
-    const password = document.getElementById('password').value.trim();
-
-    const { data, error } = await supabase.auth.signInWithPassword({ email, password });
-
-    if (error) {
-      alert('Login failed: ' + error.message);
-      return;
-    }
-
-    if (!data.user.email_confirmed_at) {
-      alert('Please verify your email before logging in!');
-      return;
-    }
-
-    // ✅ Successful login
-    alert('Login successful! Redirecting to homepage...');
-    console.log('Logged in user:', data.user);
-
-    // Redirect to homepage.html after short delay
-    setTimeout(() => {
-      window.location.href = 'homepage.html';
-    }, 1000);
-  });
-</script>
-
 <body>
   <div class="login-container">
     <div class="left-section">
@@ -91,10 +53,61 @@
             <button type="button" class="facebook-btn"><i class="bi bi-facebook me-2"></i> Continue with Facebook</button>
           </div>
 
-          <p class="register-text">Don’t have any account? <a href="#">Register</a></p>
+          <p class="register-text">Don’t have any account? <a href="createacc.html">Register</a></p>
         </form>
       </div>
     </div>
   </div>
+
+  <script type="module">
+    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
+
+    const supabaseUrl = 'https://osywaesdozykwhupydzy.supabase.co';
+    const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9zeXdhZXNkb3p5a3dodXB5ZHp5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjI5ODE0OTYsImV4cCI6MjA3ODU1NzQ5Nn0.8Yb5tNAMsPkqoWPvsMsqSf6migp6BA5d9dbOdHyG-dE';
+    const supabase = createClient(supabaseUrl, supabaseAnonKey);
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const loginForm = document.getElementById('loginform');
+
+      loginForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const email = document.getElementById('email').value.trim();
+        const password = document.getElementById('password').value.trim();
+
+        // Sign in
+        const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+
+        if (error) {
+          alert('Login failed: ' + error.message);
+          return;
+        }
+
+        // If your flow requires email confirmation, keep this check. Otherwise remove.
+        if (!data?.user?.email_confirmed_at) {
+          alert('Please verify your email before logging in!');
+          return;
+        }
+
+        // Successful login; redirect to homepage
+        alert('Login successful! Redirecting to homepage...');
+        setTimeout(() => {
+          window.location.href = 'homepage.html';
+        }, 700);
+      });
+
+      // Optional: toggle password visibility
+      const toggle = document.querySelector('.toggle-password');
+      const pwInput = document.getElementById('password');
+      if (toggle && pwInput) {
+        toggle.addEventListener('click', () => {
+          const isPwd = pwInput.type === 'password';
+          pwInput.type = isPwd ? 'text' : 'password';
+          toggle.classList.toggle('bi-eye');
+          toggle.classList.toggle('bi-eye-slash');
+        });
+      }
+    });
+  </script>
 </body>
 </html>
