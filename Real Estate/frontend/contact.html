@@ -10,10 +10,46 @@
     <link rel="stylesheet" href="styles/contact.css">
 </head>
 
+<script type="module">
+  import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
+
+  const supabaseUrl = 'https://osywaesdozykwhupydzy.supabase.co';
+  const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9zeXdhZXNkb3p5a3dodXB5ZHp5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjI5ODE0OTYsImV4cCI6MjA3ODU1NzQ5Nn0.8Yb5tNAMsPkqoWPvsMsqSf6migp6BA5d9dbOdHyG-dE';
+  const supabase = createClient(supabaseUrl, supabaseAnonKey);
+
+  const contactForm = document.getElementById('contactform');
+
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const message = document.getElementById('message').value.trim();
+
+    const { error } = await supabase
+      .from('contact_info')
+      .insert([{ name, email, phone, message }]);
+
+    if (error) {
+      alert('Failed to send message: ' + error.message);
+      return;
+    }
+
+    alert('Message sent successfully!');
+    contactForm.reset();
+  });
+</script>
+
+
 <body>
 
+<!-- ===================================================== -->
+<!-- ===================== NAVBAR ======================== -->
+<!-- ===================================================== -->
+
 <header class="navbar">
-    <div class="logo">BexPrestige.</div>
+    <div class="logo">Bexprestige.</div>
 
         <nav>
         <ul class="nav-links">
@@ -36,6 +72,10 @@
 </header>
 
 
+<!-- ===================================================== -->
+<!-- ===================== HERO ========================== -->
+<!-- ===================================================== -->
+
 <div class="hero-contact">
     <div class="overlay">
         <div class="overlay-content">
@@ -45,6 +85,10 @@
     </div>
 </div>
 
+
+<!-- ===================================================== -->
+<!-- ================== CONTACT SECTION ================== -->
+<!-- ===================================================== -->
 
 <section class="contact-container">
 
@@ -80,25 +124,29 @@
         <h2>Send Us a Message</h2>
         <div class="line"></div>
 
-        <form action="#" method="POST">
-            <label>Full Name</label>
-            <input type="text" placeholder="Enter your full name">
+        <form id="contactform">
+    <label>Full Name</label>
+    <input type="text" id="name" placeholder="Enter your full name">
 
-            <label>Email Address</label>
-            <input type="email" placeholder="Enter your email">
+    <label>Email Address</label>
+    <input type="email" id="email" placeholder="Enter your email">
 
-            <label>Phone Number</label>
-            <input type="text" placeholder="Enter your phone number">
+    <label>Phone Number</label>
+    <input type="text" id="phone" placeholder="Enter your phone number">
 
-            <label>Message</label>
-            <textarea placeholder="Write your message here"></textarea>
+    <label>Message</label>
+    <textarea id="message" placeholder="Write your message here"></textarea>
 
-            <button type="submit">Send Message</button>
-        </form>
+    <button type="submit">Send Message</button>
+    </form>
     </div>
 
 </section>
 
+
+<!-- ===================================================== -->
+<!-- ==================== MAP SECTION ==================== -->
+<!-- ===================================================== -->
 
 <section class="map-section">
     <h2>Find Us Here</h2>
@@ -112,6 +160,11 @@
         </iframe>
     </div>
 </section>
+
+
+<!-- ===================================================== -->
+<!-- ===================== FOOTER ======================== -->
+<!-- ===================================================== -->
 
 <footer>
   <div class="footer-content">
@@ -132,7 +185,5 @@
   </div>
 </footer>
 
-<!-- Add account logic module -->
-<script type="module" src="js/account.js"></script>
 </body>
 </html>
