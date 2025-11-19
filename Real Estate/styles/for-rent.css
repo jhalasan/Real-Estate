@@ -13,7 +13,7 @@ body {
 /* ================= HERO ================= */
 .hero-sale {
     height: 350px;
-    background: url('assets/CasamiraHomes.png') center/cover no-repeat;
+    background: url('../assets/CasamiraHomes.png') center/cover no-repeat;
     position: relative;
 }
 

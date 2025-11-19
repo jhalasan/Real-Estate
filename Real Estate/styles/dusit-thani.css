@@ -114,7 +114,7 @@
 /* Hero Section */
 .hero {
     position: relative;
-    background: url('assets3/dusit-thani.jpg') center/cover no-repeat;
+    background: url('../assets3/dusit-thani.jpg') center/cover no-repeat;
     height: 500px;
     width: 100%;
 }

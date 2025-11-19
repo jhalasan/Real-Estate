@@ -200,7 +200,7 @@ input:focus {
 .right-section {
   flex: 1;
   position: relative;
-  background: url('assets/GettyImages-175259322-scaled-e1644008212418.jpg') no-repeat center center/cover;
+  background: url('../assets/GettyImages-175259322-scaled-e1644008212418.jpg') no-repeat center center/cover;
   color: white;
   display: flex;
   flex-direction: column;

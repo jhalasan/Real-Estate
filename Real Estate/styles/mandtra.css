@@ -115,7 +115,7 @@
 /* Hero Section */
 .img-mandtra {
   position: relative;
-  background: url('assets2/mandtra-scaled.jpg') center/cover no-repeat;
+  background: url('../assets2/mandtra-scaled.jpg') center/cover no-repeat;
   height: 500px;
   width: 100%;
 }

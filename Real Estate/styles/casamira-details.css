@@ -114,7 +114,7 @@
 /* Hero Section */
 .img-casamira {
   position: relative;
-  background: url('assets/CasamiraHomes.png') center/cover no-repeat;
+  background: url('../assets/CasamiraHomes.png') center/cover no-repeat;
   height: 500px;
   width: 100%;
 }

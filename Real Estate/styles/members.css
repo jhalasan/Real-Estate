@@ -6,9 +6,10 @@
 
 body {
     font-family: "Poppins", sans-serif;
-    background: #fff;
+    background: white;
     padding-top: 60px;
 }
+
 .navbar {
     position: fixed;
     top: 0;
@@ -109,10 +110,10 @@ body {
 }
 
 /* HERO */
-.hero-contact {
+.hero-members {
     position: relative;
     height: 350px;
-    background: url('assets/CasamiraHomes.png') center/cover no-repeat;
+    background: url('../assets/CasamiraHomes.png') center/cover no-repeat;
 }
 
 .overlay {
@@ -134,105 +135,91 @@ body {
 }
 
 .overlay-content h1 {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
+    margin-bottom: 10px;
     font-weight: 600;
 }
 
 .overlay-content p {
-    font-size: 1.1rem;
     opacity: 0.9;
+    font-size: 1.15rem;
 }
-
 @keyframes fadeInLeft {
     from { opacity: 0; transform: translateX(-40px); }
     to { opacity: 1; transform: translateX(0); }
 }
 
-/* CONTACT SECTION */
-.contact-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 50px;
+/* MEMBERS SECTION */
+.members-section {
     padding: 60px 80px;
 }
 
+.members-section h2 {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
 .line {
-    width: 80px;
+    width: 90px;
     height: 4px;
     background: #c0392b;
     margin: 10px 0 25px 0;
     border-radius: 2px;
 }
 
-.contact-info ul {
-    list-style: none;
-    margin-top: 20px;
+.members-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
 }
 
-.contact-info ul li {
-    margin: 12px 0;
-    font-size: 1rem;
-    color: #444;
+.member-card {
+    background: #f8f9fa;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
 }
 
-.contact-info i {
-    margin-right: 10px;
+.member-photo {
+    width: 100%;
+    height: 180px;
+    border: 2px dashed #52708d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #52708d;
+    font-weight: 600;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.member-card h3 {
+    font-size: 1.3rem;
     color: #52708d;
 }
 
-.contact-info .note {
-    margin-top: 20px;
+.role {
     font-size: 0.95rem;
-    color: #777;
-}
-
-/* FORM */
-.contact-form form {
-    display: flex;
-    flex-direction: column;
-}
-
-.contact-form input,
-.contact-form textarea {
-    padding: 12px;
-    margin-bottom: 15px;
-    border: 1px solid #bbb;
-    border-radius: 5px;
-}
-
-.contact-form button {
-    background: #52708d;
-    color: white;
-    padding: 12px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    margin: 5px 0;
     font-weight: 600;
+    color: #555;
 }
 
-.contact-form button:hover {
-    background: #415a70;
+.desc {
+    margin-top: 10px;
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.5;
 }
 
-/* MAP SECTION */
-.map-section {
-    padding: 60px 80px;
-    background: #f8f9fa;
+/* FOOTER */
+footer {
+    background: #52708d;
+    color: #fff;
+    padding: 1.5rem 3rem;
 }
 
-.map-section h2 {
-    font-size: 2rem;
-}
-
-.map-container {
-    margin-top: 20px;
-    width: 100%;
-    height: 350px;
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-/* FOOTER (already good) */
 footer {
     background-color: #52708d;
     color: #fff;
