@@ -6,7 +6,6 @@ let searchInput;
 // small sanitizer for display
 const escapeHtml = (s) => String(s || '').replace(/[&<>"']/g, (m) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
 
-// READ: load all inquiries
 async function loadInquiries() {
   if (!tbody) return;
   tbody.innerHTML = `<tr><td colspan="6" style="padding:12px;text-align:center;color:#666">Loading...</td></tr>`;
@@ -45,7 +44,6 @@ function renderRows(rows) {
       <td>${escapeHtml(date)}</td>
       <td class="message-cell" style="max-width:420px;white-space:pre-wrap;word-break:break-word;">${escapeHtml(r.message)}</td>
       <td class="actions-cell">
-        <button class="edit-btn" data-id="${r.id}" title="Edit">Edit</button>
         <button class="delete-btn" data-id="${r.id}" title="Delete" style="margin-left:8px;color:#b00;">Delete</button>
       </td>
     `;
@@ -83,39 +81,7 @@ async function deleteInquiry(id, rowElement) {
   }
 }
 
-// UPDATE: edit message (simple prompt)
-async function editInquiryMessage(id, rowElement) {
-  const msgCell = rowElement.querySelector('.message-cell');
-  if (!msgCell) return;
-  const current = msgCell.textContent.trim();
-  const updated = prompt('Edit message:', current);
-  if (updated === null) return; // cancelled
-  const newMsg = updated.trim();
-  if (newMsg === current) return;
 
-  try {
-    const { data, error } = await supabase
-      .from('inquiries')
-      .update({ message: newMsg })
-      .eq('id', id)
-      .select()
-      .single();
-
-    if (error) throw error;
-
-    // update UI and cache
-    msgCell.textContent = data.message;
-    const raw = tbody.dataset._rows ? JSON.parse(tbody.dataset._rows) : [];
-    const idx = raw.findIndex(r => String(r.id) === String(id));
-    if (idx !== -1) {
-      raw[idx].message = data.message;
-      tbody.dataset._rows = JSON.stringify(raw);
-    }
-  } catch (err) {
-    console.error('Update failed', err);
-    alert('Failed to update inquiry.');
-  }
-}
 
 // client-side search/filter
 function applyFilter(query) {
