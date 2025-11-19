@@ -1,6 +1,4 @@
-
-
-  .navbar {
+.navbar {
     position: fixed;
     top: 0;
     width: 100%;
@@ -22,7 +20,8 @@
     list-style: none;
     display: flex;
     gap: 25px;
-    margin-bottom: 0;
+    /* center this flex item within the navbar */
+    margin: 0 auto;
   }
   
   .nav-links a {

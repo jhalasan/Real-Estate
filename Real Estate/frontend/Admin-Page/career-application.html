@@ -24,7 +24,7 @@
   <h1 class="section-title">Career Applicants</h1>
 
   <div class="search-bar">
-    <input type="text" placeholder="Search applicants...">
+    <input type="text" placeholder="Search applicants..." id="search-input">
   </div>
 
   <table>
@@ -35,10 +35,16 @@
       <th>Address</th>
       <th>Date Applied</th>
       <th>CV file</th>
+      <th>Actions</th> <!-- added actions column -->
     </tr>
+    <tbody id="applicants-tbody">
+      <!-- rows inserted dynamically -->
+    </tbody>
   </table>
 
 </div>
 
+<!-- load admin module to fetch & manage applicants -->
+<script type="module" src="../js/career-application.js"></script>
 </body>
 </html>

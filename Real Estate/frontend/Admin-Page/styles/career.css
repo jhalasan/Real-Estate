@@ -54,3 +54,27 @@
       background: #e5e7eb;
       font-weight: 600;
     }
+
+    /* styled delete button for admin table */
+    .delete-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: #e53935;
+      color: #fff;
+      border: none;
+      padding: .35rem .6rem;
+      border-radius: 6px;
+      font-size: .9rem;
+      cursor: pointer;
+    }
+    .delete-btn i {
+      font-size: 1rem;
+      line-height: 1;
+    }
+    .delete-btn:hover {
+      background: #c62828;
+    }
+    .delete-btn:active { transform: translateY(1px); }
+    /* small responsive tweak for table cell */
+    td .delete-btn { white-space: nowrap; }
